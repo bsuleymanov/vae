@@ -5,7 +5,7 @@ from torch.utils import data
 from torchvision.utils import save_image
 from pathlib import Path
 import fire
-from model import VAE
+from vae import VAE
 
 def train_from_folder(
     data_dir = "../data/",
@@ -25,6 +25,8 @@ def train_from_folder(
     data_dir = Path(data_dir)
     sample_dir = Path(results_dir)
     models_dir = Path(models_dir)
+    sample_dir.mkdir(exist_ok=True)
+    models_dir.mkdir(exist_ok=True)
 
     device = torch.device(device)
 
